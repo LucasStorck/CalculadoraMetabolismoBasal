@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <title>Calculadora</title>
+  </head>
+  <body>
+    <main>
+      <div id="container">
+        <section id="img">
+          <img src="/img/lifestyle.svg" alt="Ilustração" />
+        </section>
+
+        <section id="calculator">
+          <form id="form">
+            <h1 id="title">Calculadora de Taxa Metabólica</h1>
+            <div class="input_box">
+              <label for="weight">Peso</label>
+              <div class="input-field">
+                <i class="fa-solid fa-weight-hanging"></i>
+                <input type="number" id="weight" name="weight" required />
+                <span></span>
+              </div>
+            </div>
+
+            <div class="input_box">
+              <label for="height">Altura</label>
+              <div class="input-field">
+                <i class="fa-solid fa-ruler"></i>
+                <input type="number" id="height" name="height" required />
+                <span></span>
+              </div>
+            </div>
+
+            <div class="input_box">
+              <label for="age">Idade</label>
+              <div class="input-field">
+                <i class="fa-solid fa-calendar"></i>
+                <input type="number" id="age" name="age" required />
+                <span></span>
+              </div>
+            </div>
+
+            <div class="radio_group">
+              <label for="female">Mulher</label>
+              <input
+                type="radio"
+                id="female"
+                name="gender"
+                value="female"
+                required
+              />
+              <label for="male">Homem</label>
+              <input
+                type="radio"
+                id="male"
+                name="gender"
+                value="male"
+                required
+              />
+            </div>
+            <button type="submit" id="calculate">Calcular</button>
+          </form>
+          <div id="infos" class="hidden">
+            <div id="result">
+              <div id="tmb">
+                <span id="value"></span>
+                <span></span>
+              </div>
+              <div id="description">
+                <span></span>
+              </div>
+            </div>
+            <div id="more_infos">
+              <a
+                rel="noopener"
+                target="_blank"
+                href="https://nutrologyacademy.com/o-que-e-taxa-metabolica-basal/"
+              >
+                Informações Sobre a TMB
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+              </a>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+    <script src="/js/script.js"></script>
+  </body>
+</html>
