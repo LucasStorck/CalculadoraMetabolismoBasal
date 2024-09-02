@@ -1,5 +1,5 @@
 <div align="center">
-  <h1>Calculadora de Calculadora de Taxa Metabólica</h1>
+  <h1>Calculadora de Taxa Metabólica</h1>
   <img src="https://github.com/user-attachments/assets/902b85ad-becb-48a8-bddd-f1249419f280" height="400px" width="800px">
   <p>Calculadora que estima a taxa metabólica a partir do peso, altura, idade e gênero da pessoa.</p>
   
