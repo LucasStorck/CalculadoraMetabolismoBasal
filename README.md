@@ -14,3 +14,5 @@
 <p>Para executar o pojeto localmente, siga o passo a baixo:</p>
 <h3>Clone o Projeto</h3>
 <pre>git clone https://github.com/LucasStorck/CalculadoraMetabolismoBasal.git</pre>
+
+<p align="center"> - Desenvolvido por <b>Lucas Storck</b></p>
