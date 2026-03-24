@@ -11,7 +11,7 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <title>Calculadora</title>
+    <title>Calculadora TMB & TDEE</title>
   </head>
   <body>
     <main>
@@ -22,73 +22,119 @@
 
         <section id="calculator">
           <form id="form">
-            <h1 id="title">Calculadora de Taxa Metabólica</h1>
-            <div class="input_box">
-              <label for="weight">Peso</label>
-              <div class="input-field">
-                <i class="fa-solid fa-weight-hanging"></i>
-                <input type="number" id="weight" name="weight" required />
-                <span></span>
+            <h1 id="title">Metabolismo & TDEE</h1>
+            
+            <div class="input-group-row">
+              <div class="input_box">
+                <label for="weight">Peso (kg)</label>
+                <div class="input-field">
+                  <i class="fa-solid fa-weight-hanging"></i>
+                  <input type="number" id="weight" name="weight" step="0.1" required />
+                </div>
+              </div>
+
+              <div class="input_box">
+                <label for="height">Altura (cm)</label>
+                <div class="input-field">
+                  <i class="fa-solid fa-ruler"></i>
+                  <input type="number" id="height" name="height" required />
+                </div>
+              </div>
+            </div>
+
+            <div class="input-group-row">
+              <div class="input_box">
+                <label for="age">Idade</label>
+                <div class="input-field">
+                  <i class="fa-solid fa-calendar"></i>
+                  <input type="number" id="age" name="age" required />
+                </div>
+              </div>
+
+              <div class="input_box">
+                <label>Gênero</label>
+                <div class="radio_group">
+                  <label class="custom-radio">
+                    <input type="radio" name="gender" value="female" required/>
+                    <span><i class="fa-solid fa-venus"></i> Feminino</span>
+                  </label>
+                  <label class="custom-radio">
+                    <input type="radio" name="gender" value="male" required/>
+                    <span><i class="fa-solid fa-mars"></i> Masculino</span>
+                  </label>
+                </div>
               </div>
             </div>
 
             <div class="input_box">
-              <label for="height">Altura</label>
+              <label for="activity">Nível de Atividade</label>
               <div class="input-field">
-                <i class="fa-solid fa-ruler"></i>
-                <input type="number" id="height" name="height" required />
-                <span></span>
+                <i class="fa-solid fa-person-running"></i>
+                <select id="activity" required>
+                  <option value="1.2">Sedentário (pouco a nenhum exercício)</option>
+                  <option value="1.375">Levemente Ativo (1 a 3 dias/semana)</option>
+                  <option value="1.55">Moderadamente Ativo (3 a 5 dias/semana)</option>
+                  <option value="1.725">Muito Ativo (6 a 7 dias/semana)</option>
+                  <option value="1.9">Extremamente Ativo (trabalho braçal intenso)</option>
+                </select>
               </div>
             </div>
 
             <div class="input_box">
-              <label for="age">Idade</label>
+              <label for="goal">Seu Objetivo</label>
               <div class="input-field">
-                <i class="fa-solid fa-calendar"></i>
-                <input type="number" id="age" name="age" required />
-                <span></span>
+                <i class="fa-solid fa-bullseye"></i>
+                <select id="goal" required>
+                  <option value="lose_fast">Emagrecimento Acelerado</option>
+                  <option value="lose">Emagrecimento Progressivo</option>
+                  <option value="maintain" selected>Manutenção de Peso</option>
+                  <option value="gain">Ganho de Massa Magra</option>
+                  <option value="gain_fast">Ganho Acelerado / Bulking</option>
+                </select>
               </div>
             </div>
 
-            <div class="radio_group">
-              <label for="female">Mulher</label>
-              <input
-                type="radio"
-                id="female"
-                name="gender"
-                value="female"
-                required
-              />
-              <label for="male">Homem</label>
-              <input
-                type="radio"
-                id="male"
-                name="gender"
-                value="male"
-                required
-              />
-            </div>
-            <button type="submit" id="calculate">Calcular</button>
+            <button type="submit" id="calculate">
+              <span>Gerar Perfil</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </button>
           </form>
+
           <div id="infos" class="hidden">
-            <div id="result">
-              <div id="tmb">
-                <span id="value"></span>
-                <span></span>
+            <div id="results-grid">
+              <div class="result-card">
+                <h3>Sua TMB</h3>
+                <span id="tmb-value">0</span>
+                <p>Gastos em repouso</p>
               </div>
-              <div id="description">
-                <span></span>
+              <div class="result-card primary">
+                <h3>Seu Consumo Alvo</h3>
+                <span id="tdee-value">0</span>
+                <p>Para atingir o objetivo</p>
               </div>
             </div>
-            <div id="more_infos">
-              <a
-                rel="noopener"
-                target="_blank"
-                href="https://nutrologyacademy.com/o-que-e-taxa-metabolica-basal/"
-              >
-                Informações Sobre a TMB
-                <i class="fa-solid fa-arrow-up-right-from-square"></i>
-              </a>
+            
+            <div id="ai-coach" class="ai-coach-card">
+              <div class="ai-header">
+                <i class="fa-solid fa-robot"></i> 
+                <span>IA Coach</span>
+              </div>
+              <p id="ai-tips">Calculando recomendações dinâmicas...</p>
+              
+              <div class="macros-grid">
+                <div class="macro">
+                  <span class="macro-label">Carboidratos</span>
+                  <span id="macro-carbs" class="macro-value">0g</span>
+                </div>
+                <div class="macro">
+                  <span class="macro-label">Proteínas</span>
+                  <span id="macro-proteins" class="macro-value">0g</span>
+                </div>
+                <div class="macro">
+                  <span class="macro-label">Gorduras</span>
+                  <span id="macro-fats" class="macro-value">0g</span>
+                </div>
+              </div>
             </div>
           </div>
         </section>
